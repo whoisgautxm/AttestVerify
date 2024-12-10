@@ -1,5 +1,6 @@
 const { zkVerifySession, ZkVerifyEvents } = require('zkverifyjs');
 const fs = require('fs');
+require('dotenv').config();
 
 async function executeVerificationTransaction(proofPath, publicSignalsPath) {
   // Read the binary files
@@ -13,7 +14,7 @@ async function executeVerificationTransaction(proofPath, publicSignalsPath) {
   // Start a new zkVerifySession on testnet
   const session = await zkVerifySession.start()
     .Testnet()
-    .withAccount('afford scale strong common joy concert hidden pudding screen cube pistol member');
+    .withAccount(process.env.SEED_PHRASE);
 
   // Execute the verification transaction
   const { events, transactionResult } = await session.verify().risc0()
@@ -61,7 +62,6 @@ async function executeVerificationTransaction(proofPath, publicSignalsPath) {
 // File paths
 const proofPath = "/Users/shivanshgupta/Desktop/AttestVerify/inner.bin";
 const publicSignalsPath = "/Users/shivanshgupta/Desktop/AttestVerify/journal.bin";
-
 
 // Execute the transaction
 executeVerificationTransaction(proofPath, publicSignalsPath);
