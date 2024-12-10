@@ -1,6 +1,6 @@
 # AttestVerify - One stop solution for all privacy preserving solutions 
 
-## Demo video - [https://youtu.be/cZUNZNA57K8]
+## Updated Demo video (with ZkVerify Integrated) - [https://youtu.be/cZUNZNA57K8]
 
 ## How it works -
 The *AttestVerify* uses cryptographic standards and zero-knowledge proofs (ZKP) to ensure secure and verifiable claims while maintaining user privacy.
