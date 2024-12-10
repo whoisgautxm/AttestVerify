@@ -3,7 +3,7 @@
 use crate::structs::Attest;
 use ethers_core::types::Signature;
 use ethers_core::types::{H160, H256};
-use methods::ADDRESS_ELF;
+use methods::HASHER_GUEST_ELF as ADDRESS_ELF;
 use risc0_zkvm::{default_prover, ExecutorEnv, Receipt};
 
 

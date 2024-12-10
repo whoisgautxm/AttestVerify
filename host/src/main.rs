@@ -5,7 +5,7 @@ mod zk_proof;
 use anyhow::Result;
 use ethers_core::types::H160;
 use helper::domain_separator;
-use methods::ADDRESS_ID;
+use methods::HASHER_GUEST_ID as ADDRESS_ID;
 use std::fs;
 use std::time::Instant;
 use structs::{Attest, InputData};
@@ -78,7 +78,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         domain_separator, // Pass the domain separator
     );
 
-    fs::write("receipt.json", serde_json::to_string(&receipt)?)?;
+    // fs::write("receipt.json", serde_json::to_string(&receipt)?)?;
 
  
     let receipt_inner_bytes_array = bincode::serialize(&receipt.inner).unwrap();
@@ -88,7 +88,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     let receipt_journal_bytes_array = bincode::serialize(&receipt.journal).unwrap();
     println!( "Serialized bytes array (hex) JOURNAL: {:?}\n", hex::encode(&receipt_journal_bytes_array));
-    fs::write("journal.json", receipt_journal_bytes_array)?;
+    fs::write("journal.bin", receipt_journal_bytes_array)?;
 
 
     let mut image_id_hex = String::new();
